@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import ShopItem from './ShopItem'
 
 
-function ShoppingItemList() {
+function ShoppingItemList({user}) {
 
   // this is the state we will use to hold the response from the api
   const [products, setProducts] = useState([]);
@@ -21,10 +21,7 @@ function ShoppingItemList() {
     console.log(products)
   }, [])
 
-  const handleAddToCart = async (product) => {
-    /* add product to cart via api */
-    /* redirect to the cart page */
-  }
+
 
   
   
@@ -32,7 +29,7 @@ function ShoppingItemList() {
   return (
     <Grid container direction="row" spacing={1}>
       {products.map((product) => (
-        <ShopItem key={product.id} name={product.name} description={product.description} price={product.price}></ShopItem>
+        <ShopItem key={product.id} name={product.name} description={product.description} price={product.price} user={user}></ShopItem>
       ))}
     </Grid>
   )
